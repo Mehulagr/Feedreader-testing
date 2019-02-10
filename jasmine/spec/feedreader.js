@@ -53,6 +53,7 @@ $(function() {
           expect(selecting_body).not.toHaveClass('menu-hidden');
 
           document.querySelector('.menu-icon-link').click();
+          expect(selecting_body).toHaveClass('menu-hidden');
        });
     });
 
@@ -65,23 +66,24 @@ $(function() {
          it('are loaded properly', function() {
            var select_feed = document.querySelector('.feed');
            expect(select_feed.children.length).toBeGreaterThan(0);
+           expect(select_feed.querySelector('.entry').innerText.length).toBeGreaterThan(0);
          });
      });
 
     /* Test to see that feed is updating properly */
     describe('New Feed Selection', function() {
-        var feed = document.querySelector('.feed');
         var initial_feed, final_feed;
 
-        /* Checking that feed is updating after each call of loadFeed function */
+        /* Checking that the feed changed after loading first and second feed */
         beforeEach(function(done) {
-            loadFeed(1);
-            initial_feed = feed.children[0].href;
-            loadFeed(2, done);
+            loadFeed(0, function(){
+              initial_feed = document.querySelector('.feed').children[0].href;
+              loadFeed(1, done);
+            });
         });
 
-        it('are loaded properly', function() {
-            final_feed = feed.children[0].href;
+        it('is updating properly', function() {
+            final_feed = document.querySelector('.feed').children[0].href;
             expect(initial_feed).not.toBe(final_feed);
         });
     });
