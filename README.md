@@ -1,13 +1,5 @@
 # Feed Reader by Mehul Agrawal
 
-## Table of Contents
-
-- [Getting Started](#Getting Started)
-- [Objective](#objective)
-- [Dependencies](#dependencies)
-- [Testing](#testing)
-- [Contributing](#contributing)
-
 ## Getting Started
 To get started with the project download the zip or get started by cloning the repository- https://github.com/Mehulagr/Feedreader-testing.git
 
@@ -22,6 +14,16 @@ Font: Roboto
 ## Testing
 For Testing install: [Jasmine 3.3.0](http://jasmine.github.io/)
 Testing Cases: feedreader.js
+The code has following test cases-
+* RSS Feeds
+  * are defined and not empty
+  * have URL attached to them
+  * have name attached to them
+* The menu
+  * is hidden by default
+  * the button toggles menu correctly
+* The feed is getting loaded with initial entries to begin with.
+* The feed is updating properly
 
 ## Contributing
 Based on starter code from [Udacity](https://github.com/udacity/frontend-nanodegree-feedreader)
